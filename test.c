@@ -6,7 +6,7 @@ int main(void)
     int size = sizeof(array) / sizeof(array[0]);
 
     print(array, size);
-    heapSort(array, size);
+    mergeSort(array, size);
     print(array, size);
 
     return 0;
