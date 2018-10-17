@@ -350,12 +350,73 @@ void heapSort(DataType * array, int size)
     createHeap(array, size);
 }
 
+void MergeData(DataType* array, int left, int mid, int right, DataType* temp)
+{
+	int beginL = left;
+	int endL = mid;
+	int beginR = mid;
+	int endR = right;
+	int index = left;
+
+	while (beginL < endL && beginR < endR)
+	{
+		if (array[beginL] <= array[beginR])
+		{
+			temp[index++] = array[beginL++];
+		}
+		else
+		{
+			temp[index++] = array[beginR++];
+		}
+	}
+
+	while (beginL < endL)
+	{
+		temp[index++] = array[beginL++];
+	}
+	while (beginR < endR)
+	{
+		temp[index++] = array[beginR++];
+	}
+}
+
 void mergeSort(DataType * array, int size)
 {
     if(array == NULL)
     {
         return ;
     }
+    int gap = 1;
+
+	DataType*temp = (DataType*)malloc(sizeof(DataType)*size);
+	if (NULL == temp)
+	{
+		assert(0);
+		return;
+	}
+	while (gap < size)
+	{
+		int i = 0;
+		for (i = 0; i < size; i += 2*gap)
+		{
+			int left = i;
+			int mid = left + gap;
+			int right = mid + gap;
+
+			if (mid >= size)
+			{
+				mid = size;
+			}
+			if (right >= size)
+			{
+				right = size;
+			}
+			MergeData(array, left, mid, right, temp);
+		}
+
+		memcpy(array, temp, size * sizeof(array[0]));
+		gap *= 2;
+	} 
 
 }
 
