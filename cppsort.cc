@@ -16,10 +16,38 @@ void print(std::vector<T>& array)
     }
     std::cout << std::endl;
 }
+/**
+ * 1. 冒泡排序
+ * 以下代码是冒泡排序的实现
+ * */
+template <typename T>
+void bubbleSort(std::vector<T>& array)
+{
+    if(array.empty())
+    {
+        return;
+    }
+
+    int size = static_cast<int>(array.size());
+    int i = 0;
+    int j = 0;
+    bool flag = true;
+    for(i = 0; i < size; ++i)
+    {
+        for(j = i; j < size; ++j)
+        {
+            ;
+        }
+    }
+}
 
 /**
  * 5. 快速排序
  * 以下代码是快排的实现
+ * */
+
+/**
+ * 对快排的优化
  * */
 template<typename T>
 void median_of_three(std::vector<T>& array, int left, int right)
@@ -67,6 +95,9 @@ void median_of_three(std::vector<T>& array, int left, int right)
     }
 }
 
+/**
+ * 快排实现方法很多，我们只写一个好了
+ * */
 template <typename T>
 int pation(std::vector<T>& array, int left, int right)
 {
